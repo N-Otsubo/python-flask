@@ -2,10 +2,14 @@ from datetime import date, timedelta
 from flask import Flask, render_template, request, redirect, session
 import hashlib, pymysql, random, string, datetime, configparser
 
+# 設定ファイルの読み込み
 config_ini = configparser.ConfigParser()
 config_ini.read('config.ini', encoding='utf-8')
 
+# Flaskの初期化
 app = Flask(__name__)
+
+# セッションの初期化
 app.secret_key = 'morijyobi'
 app.permanent_session_lifetime = timedelta(days=1)
 

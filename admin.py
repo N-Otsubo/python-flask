@@ -1,13 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from urllib.parse import unquote
-import hashlib, pymysql, requests
+import hashlib, pymysql, requests, configparser
 
+# 設定ファイルの読み込み
+config_ini = configparser.ConfigParser()
+config_ini.read('config.ini', encoding='utf-8')
+
+# Flaskの初期化
 app = Flask(__name__)
-
 
 # DBへの接続
 def db_connect():
-    return pymysql.connect(host='localhost',user='root',password='morijyobi',db='bookMG_db',charset='utf8',cursorclass=pymysql.cursors.DictCursor)
+    return pymysql.connect(host='localhost',user=config_ini['DB']['User'], passwd=config_ini['DB']['Passwd'], db='bookMG_db',charset='utf8',cursorclass=pymysql.cursors.DictCursor)
 
 # パスワードのハッシュ化
 def calc_hash_pw(password, salt):
@@ -15,7 +19,6 @@ def calc_hash_pw(password, salt):
     text=(password + salt).encode('utf-8')
     result = hashlib.sha512(text).hexdigest()
     return result
-
 
 # 書籍登録
 @app.route('/b_reg', methods=['GET','POST'])
