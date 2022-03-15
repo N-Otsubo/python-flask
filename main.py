@@ -1,11 +1,13 @@
-from datetime import date, timedelta
 from flask import Flask, render_template, request, redirect, session
-import hashlib
 import pymysql
-import random
-import string
-# import datetime
+from datetime import date, timedelta
 import configparser
+
+# ハッシュ関連
+import hashlib
+import string
+import random
+
 
 # 設定ファイルの読み込み
 config_ini = configparser.ConfigParser()
