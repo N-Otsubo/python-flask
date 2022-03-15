@@ -1,6 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+import configparser # .ini管理モジュール
+import pymysql #DB管理モジュール
+import hashlib #ハッシュ化モジュール
+
+# GoogleBookAPI 関連
+import requests
 from urllib.parse import unquote
-import hashlib, pymysql, requests, configparser
+
 
 # 設定ファイルの読み込み
 config_ini = configparser.ConfigParser()

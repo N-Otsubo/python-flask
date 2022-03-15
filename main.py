@@ -1,6 +1,11 @@
 from datetime import date, timedelta
 from flask import Flask, render_template, request, redirect, session
-import hashlib, pymysql, random, string, datetime, configparser
+import hashlib
+import pymysql
+import random
+import string
+# import datetime
+import configparser
 
 # 設定ファイルの読み込み
 config_ini = configparser.ConfigParser()
@@ -140,7 +145,7 @@ def book_shelf():
                 cur.execute(sql, session["id"])
                 results=cur.fetchall()
 
-        dt = datetime.datetime.today()
+        dt = date.today()
 
         return render_template('book_shelf.html', results=results, d = dt.date())
 
@@ -181,7 +186,6 @@ def book_return():
                 cur.execute(sql, (book_id,user_id))
             
             db.commit()
-
     
     return redirect('/shelf')
 
