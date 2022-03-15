@@ -1,0 +1,62 @@
+{% if id %}
+    {% extends "p_layout.html" %}
+{% else %}
+    {% extends "g_layout.html" %}
+{% endif %}
+
+{% block content %}
+
+<h1 style="margin: 40px 0 40px 0;">書籍検索</h1>
+
+<form action="#" method="POST" class="ui large form">
+    <div class="ui field">
+        <div class="ui left icon input">
+            <i class="search icon"></i>
+            <input type="search" name="keyword" id="keyword" placeholder="キーワード">
+        </div>
+    </div>
+</form>
+
+<div class="ui four column grid" style="margin-top: 40px;">
+    {% for result in results %}
+    <div class="column">
+        <a class="ui fluid card" href="{{ url_for('book', id=result.id) }}">
+            <div class="image">
+                <img src="{{ result.imageLink }}">
+            </div>
+            <div class="content">
+                <div class="header">{{result.title}}</div>
+                <div class="meta">
+                    <span class="">{{result.ISBN}}</span>
+                </div>
+                <div class="description">
+                    <span>著者:{{result.author}}</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+
+</div>
+
+<!--
+<table class="ui selectable table" style="margin-top: 40px;">
+    <thead>
+        <tr>
+            <th>書籍名</th>
+            <th>著者</th>
+            <th>ISBN</th>
+        </tr>
+    </thead>  
+    <tbody>
+    {% for result in results %}
+    <tr>    
+        <td><a href="{{ url_for('book', id=result.id) }}">{{result.title}}</a></td>
+        <td>{{result.author}}</td>
+        <td>{{result.ISBN}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table> -->
+
+{% endblock %}

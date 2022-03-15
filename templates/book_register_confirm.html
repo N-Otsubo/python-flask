@@ -1,0 +1,36 @@
+{% extends "g_layout.html" %}
+{% block content %}
+
+<h1 style="margin: 40px 0 40px 0;">登録情報確認</h1>
+<div class="ui grid">
+    <div class="ui six wide column">
+        <img class="ui centered medium image" src="{{ item.imageLink }}">
+    </div>
+    <div class="ten wide column">
+        <table class="ui definition blue table">
+            <tr>
+                <td class="single line">書籍名</td>
+                <td>{{ item.title }}</td>
+            </tr>
+            <tr>
+                <td class="single line">著者</td>
+                <td>{{ item.author }}</td>
+            </tr>
+            <tr>
+                <td class="single line">ISBNコード</td>
+                <td>{{ item.ISBN }}</td>
+            </tr>
+            <tr>
+                <td class="single line">詳細説明</td>
+                <td>{{ item.des }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="ui two buttons" style="margin-top: 40px;">
+    <a class="ui primary button" href="/b_reg_cfm?title={{ item.title }}&author={{ item.author }}&ISBN={{ item.ISBN }}&imageLink={{ item.imageLink|urlencode }}&des={{ item.des }}">登録</a>
+    <a class="ui button" href="/b_reg?flg=1">キャンセル</a>
+</div>
+
+{% endblock %}

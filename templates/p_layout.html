@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- semantic UI CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+    <style>
+        .siteHeader .item {
+            height: 54pt;
+        }
+            
+    </style>
+
+    <title>Book Manager</title>
+</head>
+
+<body>
+    <div class="ui menu inverted segment borderless">
+        <div class="ui container">
+            <div class="left menu">
+                <a href="/" class="header item">logo</a>
+            </div>
+
+            <div class="right menu">
+                <a href="#" class="item">貸出履歴</a>
+                <a href="/shelf" class="item">本棚</a>
+                <a href="/logout" class="item">ログアウト</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui container">
+        {% block content %}
+        <!-- ここにメインコンテンツを書く -->
+        {% endblock %}
+    </div>
+</body>
+
+</html>

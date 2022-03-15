@@ -1,0 +1,20 @@
+{% if id %}
+    {% extends "p_layout.html" %}
+{% else %}
+    {% extends "g_layout.html" %}
+{% endif %}
+
+{% block content %}
+
+<h1 style="margin: 40px 0 40px 0;">書籍情報</h1>
+<div class="ui grid">
+    レンタルしました。
+</div>
+
+<div class="ui two buttons" style="margin-top: 60px;">
+    <a class="ui primary button" href="/shelf">本棚へ</a>
+    <a class="ui primary button" href="/">借りる本を選ぶ</a>
+</div>
+
+
+{% endblock %}

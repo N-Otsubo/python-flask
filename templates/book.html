@@ -1,0 +1,41 @@
+{% if id %}
+    {% extends "p_layout.html" %}
+{% else %}
+    {% extends "g_layout.html" %}
+{% endif %}
+
+{% block content %}
+
+<h1 style="margin: 40px 0 40px 0;">書籍情報</h1>
+<div class="ui grid">
+    <div class="ui six wide column">
+        <img class="ui centered medium image" src="{{ result.imageLink }}">
+    </div>
+    <div class="ten wide column">
+        <table class="ui definition blue table">
+            <tr>
+                <td class="single line">書籍名</td>
+                <td>{{ result.title }}</td>
+            </tr>
+            <tr>
+                <td class="single line">著者</td>
+                <td>{{ result.author }}</td>
+            </tr>
+            <tr>
+                <td class="single line">ISBNコード</td>
+                <td>{{ result.ISBN }}</td>
+            </tr>
+            <tr>
+                <td class="single line">詳細説明</td>
+                <td>{{ result.des }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="ui two buttons" style="margin-top: 60px;">
+    <a class="ui primary button" href="{{ url_for('book_lental', book_id= result.id)}}">借りる</a>
+</div>
+
+
+{% endblock %}

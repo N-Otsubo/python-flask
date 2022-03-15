@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- semantic UI CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+    <style type="text/css">
+        body {
+            background-color: #DADADA;
+        }
+
+        body>.grid {
+            height: 100%;
+        }
+
+        .image {
+            margin-top: -100px;
+        }
+
+        .column {
+            max-width: 450px;
+        }
+    </style>
+
+    <title>Book Manager</title>
+</head>
+
+<body>
+
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h2 class="ui header" style="margin: 15px 0 15px 0;">
+                <div class="content">
+                    ログインフォーム
+                </div>
+            </h2>
+            <form class="ui large form" action="/login" method="post">
+                <div class="ui raised segment">
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="id" id="id" placeholder="学籍番号">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="pw" id="pw" placeholder="パスワード">
+                        </div>
+                    </div>
+                    <input class="ui fluid primary button" type="submit" value="ログイン">
+                </div>
+
+                <div class="ui error message">{{ error }}</div>
+
+            </form>
+
+            <div class="ui message">
+                ユーザ登録がまだの方は <i class="angle right icon"></i><a href="/u_reg" style="margin-top: 10px;">新規登録</a>
+            </div>
+
+            <a class="ui left icon" href="/">
+                <i class="angle double left big icon"></i>戻る
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>
