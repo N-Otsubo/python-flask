@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1 style="margin: 40px 0 40px 0;">書籍登録</h1>
+
+{% if flg == "1" %}
+
+<form action="/b_reg" method="post">
+    <p><input type="text" name="ISBN" id="ISBN" placeholder="ISBNコード"></p>
+    <input type="submit" value="登録">
+</form>
+
+<!-- {% elif flg == "2" %}
+
+<form action="/book_register" method="post">
+    <p><input type="text" name="name" id="name" placeholder="書籍名"></p>
+    <p><input type="text" name="author" id="author" placeholder="著者"></p>
+    <p><input type="text" name="ISBN" id="ISBN" placeholder="ISBNコード"></p>
+        
+    <input type="submit" value="登録">
+</form> -->
+
+{% else %}
+
+<button class="ui btn"><a href="{{ url_for('book_register', flg=1)}}">ISBNコード</a></button>
+<button class="ui btn"><a href="{{ url_for('book_register', flg=2)}}">手入力</a></button>
+
+{% endif %}
+
+{% endblock %}

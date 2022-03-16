@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- semantic UI CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+    <style type="text/css">
+        body {
+            background-color: #DADADA;
+        }
+
+        body>.grid {
+            height: 100%;
+        }
+
+        .image {
+            margin-top: -100px;
+        }
+
+        .column {
+            max-width: 450px;
+        }
+    </style>
+
+    <title>Book Manager</title>
+</head>
+
+<body>
+
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h2 class="ui header" style="margin: 15px 0 15px 0;">
+                <div class="content">
+                    書籍管理システム<br>
+                    管理者ログイン
+                </div>
+            </h2>
+            <form class="ui large form" action="/login" method="post">
+                <div class="ui raised segment">
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="user_id" id="user_id" placeholder="管理者ID">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="pw" id="pw" placeholder="パスワード">
+                        </div>
+                    </div>
+                    <input class="ui fluid primary button" type="submit" value="ログイン">
+                </div>
+
+                <div class="ui error message">{{ error }}</div>
+
+            </form>
+
+            <div class="ui message">
+                図書管理システム<a href="127.0.0.1:8080" style="margin-top: 10px;">こちら</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

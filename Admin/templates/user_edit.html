@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1 style="margin: 40px 0 40px 0;">ユーザ管理</h1>
+
+{% if result %}
+<div class="ui text container">
+    <form class="ui large form" action="/user_edit" method="POST">
+        <div class="field">
+            <label>学籍番号</label>
+            <input type="text" name="id" value="{{ result.id }}">
+        </div>
+        <div class="field">
+            <label>氏名</label>
+            <input type="text" name="name" value="{{ result.name }}"><br>
+        </div>
+
+        <div class="field">
+            <label>パスワード</label>
+            <input type="text" name="pw" placeholder="パスワード"><br>
+        </div>
+
+        <button class="ui primary button" type="submit">変更</button>
+        <a class="ui button" href="/user">キャンセル</a>
+
+    </form>
+</div>
+{% else %}
+    現在ユーザは登録されていません
+{% endif %}
+{% endblock %}

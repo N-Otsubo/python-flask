@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1 style="margin: 40px 0 40px 0;">ユーザ管理</h1>
+
+{% if results %}
+    <table class="ui table">
+        <thead>
+            <tr>
+                <th>学籍番号</th>
+                <th>氏名</th>
+                <th></th>
+            </tr>
+            </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td width="40%" >{{ result.id }}</td>
+                <td width="40%" >{{ result.name }}</td>
+                <td>
+                    <a class="ui primary button" href="{{ url_for('user_edit', id=result.id) }}">編集</a>
+                    <a class="ui red button" href="{{ url_for('user_del', id=result.id) }}">削除</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+    現在ユーザは登録されていません
+{% endif %}
+
+{% endblock %}

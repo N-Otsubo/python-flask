@@ -22,6 +22,10 @@
                 <td>{{ result.author }}</td>
             </tr>
             <tr>
+                <td class="single line">残り冊数</td>
+                <td>{{ result.numbers }}</td>
+            </tr>
+            <tr>
                 <td class="single line">ISBNコード</td>
                 <td>{{ result.ISBN }}</td>
             </tr>
@@ -33,9 +37,20 @@
     </div>
 </div>
 
-<div class="ui two buttons" style="margin-top: 60px;">
-    <a class="ui primary button" href="{{ url_for('book_lental', book_id= result.id)}}">借りる</a>
-</div>
+<div class="ui center aligned grid" style="margin-top: 60px;">
+{% if id %}
+    {% if result.numbers > 0 %}
+        <a class="ui fluid primary button" href="{{ url_for('book_lental', book_id= result.id)}}">借りる</a>
+    {% else %}
+        <a class="ui fluid disabled button" href="{{ url_for('book_lental', book_id= result.id)}}">借りる</a>   
+        <div class="ui center pointing red label">在庫が不足ため貸し出しできません</div>    
+    {% endif %}
 
+{% else %}
+    <a class="ui fluid disabled button" href="{{ url_for('book_lental', book_id= result.id)}}">借りる</a>   
+    <div class="ui center pointing red label">書籍を借りるにはログインが必要です</div>    
+
+{% endif %}
+</div>
 
 {% endblock %}
